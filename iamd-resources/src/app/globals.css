@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Bleu foncé institutionnel */
+  --color-brand-50: #eef3fb;
+  --color-brand-100: #d9e3f5;
+  --color-brand-200: #b3c7ea;
+  --color-brand-300: #84a3d9;
+  --color-brand-400: #557ec4;
+  --color-brand-500: #3461ab;
+  --color-brand-600: #254c8f;
+  --color-brand-700: #1d3c73;
+  --color-brand-800: #16305d;
+  --color-brand-900: #102447;
+  --color-brand-950: #0a1830;
+
+  /* Accent discret (sarcelle) */
+  --color-accent-50: #effcf9;
+  --color-accent-100: #c9f5eb;
+  --color-accent-500: #14a38b;
+  --color-accent-600: #0e8673;
+  --color-accent-700: #0f6b5d;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-slate-800 antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+@utility btn-primary {
+  @apply btn bg-brand-800 text-white hover:bg-brand-700;
+}
+
+@utility btn-secondary {
+  @apply btn border border-slate-300 bg-white text-slate-700 hover:border-brand-300 hover:bg-brand-50;
+}
+
+@utility btn-danger {
+  @apply btn border border-red-200 bg-white text-red-700 hover:bg-red-50;
+}
+
+@utility btn-accent {
+  @apply btn bg-accent-600 text-white hover:bg-accent-700;
+}
+
+@utility card {
+  @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+}
+
+@utility card-hover {
+  @apply card transition hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-md;
+}
+
+@utility input {
+  @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 focus:outline-none aria-invalid:border-red-400;
+}
+
+@utility label {
+  @apply mb-1 block text-sm font-medium text-slate-700;
+}
+
+@utility badge {
+  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+}
+
+@utility prose-text {
+  @apply text-slate-700 leading-relaxed whitespace-pre-line;
+}
+
+@utility section-title {
+  @apply text-xl font-semibold text-brand-900 sm:text-2xl;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in-up 0.35s ease-out both;
+}
