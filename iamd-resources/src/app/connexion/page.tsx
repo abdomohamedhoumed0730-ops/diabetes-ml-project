@@ -21,7 +21,12 @@ export default async function SignInPage({ searchParams }: PageProps<"/connexion
           Le compte est facultatif : il permet d&apos;enregistrer des favoris et de retrouver votre historique.
         </p>
         <div className="mt-6 space-y-4">
-          {confirmError ? <Alert tone="error">Le lien de confirmation est invalide ou a expiré.</Alert> : null}
+          {confirmError ? (
+            <Alert tone="warning">
+              Le lien de confirmation n&apos;a pas pu ouvrir de session (lien expiré ou ouvert dans un autre navigateur). Si votre adresse a été
+              confirmée, connectez-vous simplement ci-dessous.
+            </Alert>
+          ) : null}
           <SignInForm next={next} />
         </div>
       </div>

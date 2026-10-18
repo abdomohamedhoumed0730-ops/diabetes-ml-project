@@ -1,0 +1,8 @@
+# Déploiement Netlify de la plateforme IAMD Resources (dossier iamd-resources/).
+[build]
+  base = "iamd-resources"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
