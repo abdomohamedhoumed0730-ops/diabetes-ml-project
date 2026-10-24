@@ -74,7 +74,7 @@ Commandes utiles :
 | `NEXT_PUBLIC_SUPABASE_URL` | local + Vercel | URL du projet Supabase |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | local + Vercel | clé publique (« publishable », ou l'ancienne « anon » via `NEXT_PUBLIC_SUPABASE_ANON_KEY`) |
 | `NEXT_PUBLIC_SITE_URL` | local + Vercel | URL publique du site (liens d'e-mail, métadonnées) |
-| `NEXT_PUBLIC_CONTACT_EMAIL` | local + Vercel | contact affiché dans le pied de page et les mentions légales |
+| `NEXT_PUBLIC_CONTACT_NAME`, `NEXT_PUBLIC_CONTACT_EMAIL`, `NEXT_PUBLIC_CONTACT_PHONE` | local + Vercel | coordonnées publiques affichées dans le pied de page et les mentions légales (facultatives) |
 | `SUPABASE_SECRET_KEY` | **local uniquement** | clé secrète, pour `create-admin` et les tests. Ne jamais la mettre sur Vercel ni dans Git |
 
 ## Créer le premier compte administrateur

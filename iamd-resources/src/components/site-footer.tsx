@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { env } from "@/lib/env";
 import { SITE_NAME } from "@/lib/constants";
 
@@ -29,16 +29,23 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-2 text-sm">
             <li><Link href="/mentions-legales" className="hover:text-white hover:underline">Mentions légales</Link></li>
             <li><Link href="/mentions-legales#droits-auteur" className="hover:text-white hover:underline">Droits d&apos;auteur et signalement</Link></li>
+            {env.contactName ? <li className="pt-1 text-white">{env.contactName}</li> : null}
             {env.contactEmail ? (
               <li>
-                <a href={`mailto:${env.contactEmail}`} className="inline-flex items-center gap-1.5 hover:text-white hover:underline">
-                  <Mail className="h-4 w-4" aria-hidden="true" />
+                <a href={`mailto:${env.contactEmail}`} className="inline-flex items-center gap-1.5 break-all hover:text-white hover:underline">
+                  <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
                   {env.contactEmail}
                 </a>
               </li>
-            ) : (
-              <li className="text-brand-300">Contact : à configurer (NEXT_PUBLIC_CONTACT_EMAIL)</li>
-            )}
+            ) : null}
+            {env.contactPhone ? (
+              <li>
+                <a href={`tel:${env.contactPhone.replace(/[^+\d]/g, "")}`} className="inline-flex items-center gap-1.5 hover:text-white hover:underline">
+                  <Phone className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  {env.contactPhone}
+                </a>
+              </li>
+            ) : null}
           </ul>
         </div>
       </div>

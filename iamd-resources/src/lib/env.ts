@@ -18,5 +18,7 @@ export const env = {
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   ),
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  contactName: process.env.NEXT_PUBLIC_CONTACT_NAME ?? "",
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
+  contactPhone: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "",
 };

@@ -6,12 +6,15 @@ import { env } from "@/lib/env";
 export const metadata: Metadata = { title: "Mentions légales" };
 
 export default function LegalPage() {
-  const contact = env.contactEmail ? (
-    <a href={`mailto:${env.contactEmail}`} className="text-brand-700 hover:underline">
-      {env.contactEmail}
-    </a>
+  const details = [
+    env.contactName,
+    env.contactEmail,
+    env.contactPhone,
+  ].filter(Boolean);
+  const contact = details.length ? (
+    <strong className="font-medium text-slate-900">{details.join(" · ")}</strong>
   ) : (
-    <em>adresse de contact à renseigner par l&apos;éditeur du site (variable NEXT_PUBLIC_CONTACT_EMAIL)</em>
+    <em>coordonnées à renseigner par l&apos;éditeur du site</em>
   );
 
   return (
