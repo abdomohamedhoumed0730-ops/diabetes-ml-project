@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, BookOpenCheck, FolderKanban, GraduationCap, Sparkles, TrendingUp } from "lucide-react";
+import { PlatformOwner } from "@/components/platform-owner";
 import { SearchBar } from "@/components/search-bar";
 import { ProjectCard, ResourceCard, SubjectCard } from "@/components/cards";
 import { Alert, EmptyState, SectionHeader } from "@/components/ui";
@@ -191,6 +192,8 @@ export default async function HomePage({ searchParams }: PageProps<"/">) {
             </div>
           )}
         </section>
+
+        <PlatformOwner />
       </div>
     </>
   );
